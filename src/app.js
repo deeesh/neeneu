@@ -2,6 +2,7 @@ App = {
     loading: false,
     contracts: {},
   
+  
     load: async () => {
       await App.loadWeb3()
       await App.loadAccount()
@@ -52,7 +53,7 @@ App = {
       const todoList = await $.getJSON('TodoList.json')
       App.contracts.TodoList = TruffleContract(todoList)
       App.contracts.TodoList.setProvider(App.web3Provider)
-    
+  
       // Hydrate the smart contract with values from the blockchain
       App.todoList = await App.contracts.TodoList.deployed()
     },
